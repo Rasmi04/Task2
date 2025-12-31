@@ -1,0 +1,145 @@
+{% extends "src/templates/layout.njk" %}
+
+{% set activePage = 'home' %}
+{% set showFooter = true %}
+
+{% block title %}The Gilded Page | Home{% endblock %}
+
+{% block head %}
+<style>
+    :root {
+        --soft-pink: #fce4ec;
+        --rose-gold: #d4a373;
+        --cream: #fffdfa;
+        --deep-rose: #880e4f;
+        --ink: #2c3e50;
+    }
+
+    body {
+        background-color: var(--cream);
+        color: var(--deep-rose);
+        font-family: 'Playfair Display', serif;
+    }
+
+    .navbar {
+        background: var(--soft-pink) !important;
+        border-bottom: 2px solid var(--rose-gold);
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--deep-rose) !important;
+        font-style: italic;
+    }
+
+    /* New 3D Hardcover Book Shape */
+    .book-item {
+        margin-bottom: 40px;
+        perspective: 1000px;
+    }
+
+    .book-hardcover {
+        width: 100%;
+        height: 350px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Spine Effect */
+        border-left: 12px solid var(--deep-rose);
+        border-radius: 4px 15px 15px 4px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .book-item:hover .book-hardcover {
+        transform: rotateY(-25deg) translateX(10px);
+        box-shadow: 20px 20px 30px rgba(136, 14, 79, 0.2);
+    }
+
+    .book-cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: sepia(20%) brightness(95%);
+    }
+
+    /* High Visibility Text Container */
+    .book-details {
+        padding: 15px 5px;
+        background: transparent;
+        text-align: left;
+    }
+
+    .book-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 2px;
+        text-transform: capitalize;
+    }
+
+    .book-author {
+        font-size: 0.85rem;
+        color: var(--rose-gold);
+        font-style: italic;
+    }
+
+    .hero-section {
+        background: linear-gradient(rgba(252, 228, 236, 0.5), rgba(252, 228, 236, 0.5)),
+            url('https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&w=1260');
+        background-size: cover;
+        padding: 100px 0;
+        border-bottom: 5px solid var(--soft-pink);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<header class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold">A Library of <span style="color: var(--rose-gold)">Dreams</span></h1>
+        <p class="lead mb-5">Curated with love for the aesthetic soul.</p>
+    </div>
+</header>
+
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-6 col-md-3 book-item">
+            <div class="book-hardcover">
+                <img src="assets/images/1.jpg" class="book-cover-img" alt="Ikigai">
+            </div>
+            <div class="book-details">
+                <div class="book-title">H. Garcia & F. Miralles</div>
+                <div class="book-author">Self Help</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 book-item">
+            <div class="book-hardcover" style="border-left-color: #d4a373;">
+                <img src="assets/images/3.jpg" class="book-cover-img" alt="Not Enough">
+            </div>
+            <div class="book-details">
+                <div class="book-title">Allie Beth Stuckey</div>
+                <div class="book-author">Self Love</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 book-item">
+            <div class="book-hardcover" style="border-left-color: #5d4037;">
+                <img src="assets/images/2.jpg" class="book-cover-img" alt="Cooper">
+            </div>
+            <div class="book-details">
+                <div class="book-title">J.S. Cooper</div>
+                <div class="book-author">The Romance Vault</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 book-item">
+            <div class="book-hardcover" style="border-left-color: #880e4f;">
+                <img src="assets/images/4.jpg" class="book-cover-img" alt="Sumino">
+             </div>
+            <div class="book-details">
+                <div class="book-title">Yoru Sumino</div>
+                <div class="book-author">Contemporary Fiction</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

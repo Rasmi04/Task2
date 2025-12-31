@@ -1,0 +1,70 @@
+{% extends "src/templates/layout.njk" %}
+
+{% set activePage = 'collections' %}
+{% set darkNavbar = true %}
+
+{% block title %}Collections | The Gilded Page{% endblock %}
+
+{% block head %}
+<style>
+    :root {
+        --soft-pink: #fce4ec;
+        --rose-gold: #d4a373;
+        --cream: #fffdfa;
+        --deep-rose: #880e4f;
+    }
+
+    body {
+        background-color: var(--cream);
+        color: var(--deep-rose);
+        font-family: 'Georgia', serif;
+    }
+
+    .navbar {
+        background: var(--soft-pink) !important;
+        border-bottom: 2px solid var(--rose-gold);
+    }
+
+    /* Morphing Liquid Blob Shape [cite: 65] */
+    .blob-img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        border: 5px solid var(--soft-pink);
+        animation: morph 8s ease-in-out infinite;
+    }
+
+    @keyframes morph {
+
+        0%,
+        100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        50% {
+            border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6 text-center">
+            <img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&w=800"
+                class="blob-img" alt="Library">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="display-3 fw-bold mb-4">Dreamy <span style="color: var(--rose-gold)">Archives</span></h2>
+            <div class="list-group list-group-flush shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                <button class="list-group-item list-group-item-action p-4 border-0 mb-2">🌸 Dark Academia
+                    Classics</button>
+                <button class="list-group-item list-group-item-action p-4 border-0 mb-2">✨ Whimsical
+                    Fantasy</button>
+                <button class="list-group-item list-group-item-action p-4 border-0 mb-2">🎀 Vintage Romance</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
